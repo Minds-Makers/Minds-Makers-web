@@ -15,7 +15,7 @@
       "stats": [
         { "num": "NEXORA · CIPHERA", "label": { "en": "Flagship AI products", "ar": "منتجاتنا الرئيسية بالذكاء الاصطناعي" } },
         { "num": { "en": "AI · Security · Engineering", "ar": "ذكاء اصطناعي · أمن · هندسة" }, "label": { "en": "Where we focus", "ar": "مجال تركيزنا" } },
-        { "num": { "en": "MENA → Global", "ar": "الشرق الأوسط ← العالم" }, "label": { "en": "Where we operate", "ar": "نطاق عملنا" } }
+        { "num": { "en": "MENA → Egypt", "ar": "الشرق الأوسط ← مصر" }, "label": { "en": "Our roadmap", "ar": "خارطة عملنا" } }
       ]
     },
     "capabilities": {
