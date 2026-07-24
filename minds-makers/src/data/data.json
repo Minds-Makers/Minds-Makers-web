@@ -141,5 +141,41 @@
         "tags": ["Consulting", "Enterprise"]
       }
     ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": { "en": "Get in touch", "ar": "تواصل معنا" },
+      "title": { "en": "Let's build something <span class='accent'>that works.</span>", "ar": "خلينا نبني حاجة <span class='accent'>شغالة فعلاً.</span>" },
+      "lead": { "en": "Tell us what you're working on — we'll get back to you shortly.", "ar": "قولنا عندك إيه، وهنرد عليك في أقرب وقت." }
+    },
+    "tabs": {
+      "request": { "en": "Request a service", "ar": "اطلب خدمة" },
+      "general": { "en": "General inquiry", "ar": "استفسار عام" }
+    },
+    "fields": {
+      "name": { "enabled": true, "required": true, "label": { "en": "Full name", "ar": "الاسم الكامل" } },
+      "email": { "enabled": true, "required": true, "label": { "en": "Email", "ar": "البريد الإلكتروني" } },
+      "phone": { "enabled": true, "required": false, "label": { "en": "Phone", "ar": "رقم الهاتف" } },
+      "company": { "enabled": true, "required": false, "label": { "en": "Company", "ar": "الشركة" } },
+      "jobTitle": { "enabled": true, "required": false, "label": { "en": "Job Title", "ar": "المسمى الوظيفي" } },
+      "budget": { "enabled": true, "required": false, "label": { "en": "Budget", "ar": "الميزانية" } },
+      "serviceType": { "enabled": true, "required": true, "label": { "en": "Service needed", "ar": "الخدمة المطلوبة" } },
+      "description": { "enabled": true, "required": true, "label": { "en": "Describe your project", "ar": "وصف مشروعك" } }
+    },
+    "budgetOptions": [
+      { "en": "Under $5,000", "ar": "أقل من 5,000 دولار" },
+      { "en": "$5,000 – $20,000", "ar": "5,000 – 20,000 دولار" },
+      { "en": "$20,000 – $50,000", "ar": "20,000 – 50,000 دولار" },
+      { "en": "$50,000+", "ar": "أكتر من 50,000 دولار" }
+    ],
+    "serviceTypes": [
+      { "en": "NEXORA — QA Automation", "ar": "نيكسورا — أتمتة ضمان الجودة" },
+      { "en": "CIPHERA — Cybersecurity", "ar": "سيفيرا — أمن سيبراني" },
+      { "en": "Engineering & Consulting", "ar": "الهندسة والاستشارات" },
+      { "en": "Training & Certification", "ar": "التدريب والشهادات" },
+      { "en": "Other", "ar": "أخرى" }
+    ],
+    "successMessage": { "en": "Thanks — our team will review your request and get back to you within 1–2 business days.", "ar": "شكرًا — فريقنا هيراجع طلبك ويرد عليك خلال يوم إلى يومين." },
+    "responseTime": { "en": "We typically reply within 24 hours on business days.", "ar": "بنرد عادةً خلال 24 ساعة في أيام العمل." }
   }
 }
