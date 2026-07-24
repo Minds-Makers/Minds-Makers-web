@@ -12,7 +12,6 @@ export default function Header() {
     { to: '/', label: { en: 'Home', ar: 'الرئيسية' } },
     { to: '/services', label: { en: 'Services', ar: 'خدماتنا' } },
     { to: '/about', label: { en: 'About', ar: 'من نحن' } },
-    { to: '/work', label: { en: 'Work', ar: 'أعمالنا' } },
     { to: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' } },
   ]
 
