@@ -10,10 +10,7 @@ const DEFAULT_CONTACT = {
     title: { en: "Let's build something together.", ar: 'خليننا نبني حاجة مع بعض.' },
     lead: { en: "Tell us what you're working on and we'll figure out the best way to help.", ar: 'قولنا بتشتغل على إيه وهنفكر في أفضل طريقة نساعد بيها.' }
   },
-  tabs: {
-    request: { en: 'Request a Service', ar: 'اطلب خدمة' },
-    general: { en: 'General Enquiry', ar: 'استفسار عام' }
-  },
+  tabs: { request: { en: 'Request a Service', ar: 'اطلب خدمة' }, general: { en: 'General Enquiry', ar: 'استفسار عام' } },
   responseTime: { en: 'We typically respond within 24 hours on business days.', ar: 'بنرد عادةً خلال 24 ساعة في أيام العمل.' },
   successMessage: { en: "We'll review your request and get back to you within 24 hours.", ar: 'هنراجع طلبك ونرد عليك خلال 24 ساعة.' },
   serviceTypes: [
@@ -32,13 +29,13 @@ const DEFAULT_CONTACT = {
     { en: 'Prefer not to say', ar: 'أفضل عدم الإفصاح' }
   ],
   fields: {
-    name:        { enabled: true, required: true,  label: { en: 'Full name',          ar: 'الاسم الكامل' } },
-    email:       { enabled: true, required: true,  label: { en: 'Email',              ar: 'البريد الإلكتروني' } },
-    phone:       { enabled: true, required: false, label: { en: 'Phone',              ar: 'رقم الهاتف' } },
-    company:     { enabled: true, required: false, label: { en: 'Company',            ar: 'الشركة' } },
-    jobTitle:    { enabled: true, required: false, label: { en: 'Job Title',          ar: 'المسمى الوظيفي' } },
-    serviceType: { enabled: true, required: true,  label: { en: 'Service needed',     ar: 'الخدمة المطلوبة' } },
-    budget:      { enabled: true, required: false, label: { en: 'Budget',             ar: 'الميزانية' } },
+    name:        { enabled: true, required: true,  label: { en: 'Full name', ar: 'الاسم الكامل' } },
+    email:       { enabled: true, required: true,  label: { en: 'Email', ar: 'البريد الإلكتروني' } },
+    phone:       { enabled: true, required: false, label: { en: 'Phone', ar: 'رقم الهاتف' } },
+    company:     { enabled: true, required: false, label: { en: 'Company', ar: 'الشركة' } },
+    jobTitle:    { enabled: true, required: false, label: { en: 'Job Title', ar: 'المسمى الوظيفي' } },
+    serviceType: { enabled: true, required: true,  label: { en: 'Service needed', ar: 'الخدمة المطلوبة' } },
+    budget:      { enabled: true, required: false, label: { en: 'Budget', ar: 'الميزانية' } },
     description: { enabled: true, required: true,  label: { en: 'Describe your project', ar: 'وصف مشروعك' } }
   }
 }
@@ -59,7 +56,6 @@ export default function Contact() {
           <p className="lead" style={{ marginTop: 20 }}>{t(c.hero.lead)}</p>
         </div>
       </section>
-
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div style={{ display: 'flex', gap: 4, marginBottom: 40, borderBottom: '1px solid var(--line)' }}>
@@ -74,9 +70,7 @@ export default function Contact() {
           </div>
           <div className="contact-grid">
             <div>
-              {tab === 'request'
-                ? <ServiceRequestForm t={t} c={c} siteEmail={s.email} />
-                : <ContactForm t={t} email={s.email} />}
+              {tab === 'request' ? <ServiceRequestForm t={t} c={c} siteEmail={s.email} /> : <ContactForm t={t} email={s.email} />}
             </div>
             <ContactInfo t={t} s={s} c={c} />
           </div>
@@ -92,8 +86,7 @@ function ContactForm({ t, email }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // ── إيميل تنبيه رسالة عامة ──
-    await notify('new_message', { name: form.name, email: form.email, message: form.message })
+    notify('new_message', { name: form.name, email: form.email, message: form.message })
     const subject = encodeURIComponent(`Message from ${form.name}`)
     const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.email}`)
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`
@@ -103,24 +96,15 @@ function ContactForm({ t, email }) {
   if (sent) return (
     <div style={{ padding: '40px 32px', textAlign: 'center', background: 'rgba(79,216,255,.04)', border: '1px solid rgba(79,216,255,.15)', borderRadius: 'var(--r-lg)' }}>
       <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
-      <h3 style={{ color: '#fff', marginBottom: 12 }}>{t({ en: 'Message sent!', ar: 'تم إرسال رسالتك!' })}</h3>
+      <h3 style={{ color: '#fff' }}>{t({ en: 'Message sent!', ar: 'تم إرسال رسالتك!' })}</h3>
     </div>
   )
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <div>
-        <label className="field-label">{t({ en: 'Full name', ar: 'الاسم الكامل' })}</label>
-        <input className="field-input" required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder={t({ en: 'Your name', ar: 'اسمك' })} />
-      </div>
-      <div>
-        <label className="field-label">{t({ en: 'Email', ar: 'البريد الإلكتروني' })}</label>
-        <input className="field-input" type="email" required value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} placeholder="you@company.com" />
-      </div>
-      <div>
-        <label className="field-label">{t({ en: 'Message', ar: 'الرسالة' })}</label>
-        <textarea className="field-textarea" required value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} placeholder={t({ en: 'How can we help?', ar: 'كيف يمكننا مساعدتك؟' })} />
-      </div>
+      <div><label className="field-label">{t({ en: 'Full name', ar: 'الاسم الكامل' })}</label><input className="field-input" required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder={t({ en: 'Your name', ar: 'اسمك' })} /></div>
+      <div><label className="field-label">{t({ en: 'Email', ar: 'البريد الإلكتروني' })}</label><input className="field-input" type="email" required value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} placeholder="you@company.com" /></div>
+      <div><label className="field-label">{t({ en: 'Message', ar: 'الرسالة' })}</label><textarea className="field-textarea" required value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} placeholder={t({ en: 'How can we help?', ar: 'كيف يمكننا مساعدتك؟' })} /></div>
       <button type="submit" className="btn btn-ghost" style={{ alignSelf: 'flex-start' }}>{t({ en: 'Send message', ar: 'ابعت الرسالة' })}</button>
     </form>
   )
@@ -138,22 +122,20 @@ function ServiceRequestForm({ t, c, siteEmail }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const required = Object.entries(fields).filter(([_, f]) => f.enabled && f.required).map(([k]) => k)
-    const missing = required.find(k => !form[k === 'jobTitle' ? 'jobTitle' : k === 'serviceType' ? 'serviceType' : k])
+    const missing = required.find(k => !form[k])
     if (missing) { setErrMsg(t({ en: 'Please fill in all required fields.', ar: 'من فضلك املأ جميع الحقول المطلوبة.' })); setStatus('error'); return }
     setStatus('loading'); setErrMsg('')
     try {
-      const requestData = {
-        name: form.name, email: form.email,
-        phone: form.phone || null, company: form.company || null,
-        job_title: form.jobTitle || null, service_type: form.serviceType,
-        budget: form.budget || null, description: form.description, status: 'new',
-      }
       if (isSupabaseConfigured) {
-        const { error } = await supabase.from('service_requests').insert(requestData)
+        const { error } = await supabase.from('service_requests').insert({
+          name: form.name, email: form.email, phone: form.phone || null,
+          company: form.company || null, job_title: form.jobTitle || null,
+          service_type: form.serviceType, budget: form.budget || null,
+          description: form.description, status: 'new',
+        })
         if (error) throw error
       }
-      // ── إيميل تنبيه طلب خدمة جديد ──
-      await notify('new_request', { ...requestData, job_title: form.jobTitle })
+      notify('new_request', { name: form.name, email: form.email, phone: form.phone, company: form.company, job_title: form.jobTitle, service_type: form.serviceType, budget: form.budget, description: form.description })
       setStatus('success'); setForm(emptyForm)
     } catch (err) { setErrMsg(err.message); setStatus('error') }
   }
@@ -169,15 +151,13 @@ function ServiceRequestForm({ t, c, siteEmail }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {status === 'error' && (
-        <div style={{ padding: '10px 14px', background: 'rgba(248,113,113,.1)', border: '1px solid rgba(248,113,113,.3)', borderRadius: 'var(--r-sm)', fontSize: 13, color: '#f87171' }}>{errMsg}</div>
-      )}
+      {status === 'error' && <div style={{ padding: '10px 14px', background: 'rgba(248,113,113,.1)', border: '1px solid rgba(248,113,113,.3)', borderRadius: 'var(--r-sm)', fontSize: 13, color: '#f87171' }}>{errMsg}</div>}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
         {showF('name') && <div><label className="field-label">{t(fields.name?.label)}{fields.name?.required && ' *'}</label><input className="field-input" value={form.name} onChange={e => set('name', e.target.value)} required={fields.name?.required} placeholder={t({ en: 'Your name', ar: 'اسمك' })} /></div>}
         {showF('email') && <div><label className="field-label">{t(fields.email?.label)}{fields.email?.required && ' *'}</label><input className="field-input" type="email" value={form.email} onChange={e => set('email', e.target.value)} required={fields.email?.required} placeholder="you@company.com" /></div>}
         {showF('phone') && <div><label className="field-label">{t(fields.phone?.label)}</label><input className="field-input" value={form.phone} onChange={e => set('phone', e.target.value)} placeholder="+20 xxx xxx xxxx" /></div>}
-        {showF('company') && <div><label className="field-label">{t(fields.company?.label)}</label><input className="field-input" value={form.company} onChange={e => set('company', e.target.value)} placeholder={t({ en: 'Company name', ar: 'اسم الشركة' })} /></div>}
-        {showF('jobTitle') && <div><label className="field-label">{t(fields.jobTitle?.label)}</label><input className="field-input" value={form.jobTitle} onChange={e => set('jobTitle', e.target.value)} placeholder={t({ en: 'e.g. CTO', ar: 'مثال: مدير تقني' })} /></div>}
+        {showF('company') && <div><label className="field-label">{t(fields.company?.label)}</label><input className="field-input" value={form.company} onChange={e => set('company', e.target.value)} /></div>}
+        {showF('jobTitle') && <div><label className="field-label">{t(fields.jobTitle?.label)}</label><input className="field-input" value={form.jobTitle} onChange={e => set('jobTitle', e.target.value)} /></div>}
         {showF('budget') && <div><label className="field-label">{t(fields.budget?.label)}</label><select className="field-input" value={form.budget} onChange={e => set('budget', e.target.value)}><option value="">{t({ en: 'Select range…', ar: 'اختر النطاق…' })}</option>{(c.budgetOptions || []).map((b, i) => <option key={i} value={b.en}>{t(b)}</option>)}</select></div>}
       </div>
       {showF('serviceType') && <div><label className="field-label">{t(fields.serviceType?.label)}{fields.serviceType?.required && ' *'}</label><select className="field-input" value={form.serviceType} onChange={e => set('serviceType', e.target.value)} required={fields.serviceType?.required}><option value="">{t({ en: 'Select a service…', ar: 'اختر خدمة…' })}</option>{(c.serviceTypes || []).map((s, i) => <option key={i} value={s.en}>{t(s)}</option>)}</select></div>}
