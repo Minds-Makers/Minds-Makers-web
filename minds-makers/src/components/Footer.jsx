@@ -24,7 +24,6 @@ export default function Footer() {
             <ul>
               <li><Link to="/services">{t({ en: 'Services', ar: 'خدماتنا' })}</Link></li>
               <li><Link to="/about">{t({ en: 'About', ar: 'من نحن' })}</Link></li>
-              <li><Link to="/work">{t({ en: 'Work', ar: 'أعمالنا' })}</Link></li>
               <li><Link to="/contact">{t({ en: 'Contact', ar: 'تواصل معنا' })}</Link></li>
             </ul>
           </div>
