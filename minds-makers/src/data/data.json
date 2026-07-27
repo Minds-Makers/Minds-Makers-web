@@ -15,7 +15,7 @@
       "stats": [
         { "num": "NEXORA · CIPHERA", "label": { "en": "Flagship AI products", "ar": "منتجاتنا الرئيسية بالذكاء الاصطناعي" } },
         { "num": { "en": "AI · Security · Engineering", "ar": "ذكاء اصطناعي · أمن · هندسة" }, "label": { "en": "Where we focus", "ar": "مجال تركيزنا" } },
-        { "num": { "en": "MENA → Egypt", "ar": "الشرق الأوسط ← مصر" }, "label": { "en": "Our roadmap", "ar": "خارطة عملنا" } }
+        { "num": { "en": "MENA → Egypt", "ar": "مصر ← الشرق الاوسط" }, "label": { "en": "Our roadmap", "ar": "خارطة عملنا" } }
       ]
     },
     "capabilities": {
@@ -107,41 +107,13 @@
       { "mark": "ENTERPRISE-READY", "title": { "en": "Built for regulated industries", "ar": "مبني للقطاعات المنظمة" }, "desc": { "en": "Compliance-aware architecture and tailored implementation, made for FinTech, banking, and payment environments.", "ar": "معمارية تراعي متطلبات الامتثال، وتطبيقات مخصصة لقطاعات التكنولوجيا المالية والبنوك والمدفوعات." } }
     ],
     "team": [
-      { "name": "Abdelrahman Mohamed", "role": { "en": "Founder & Lead Cybersecurity", "ar": "المؤسس ورئيس قسم الأمن السيبراني" } },
-      { "name": "Ahmed Mahmoud", "role": { "en": "Co-Founder & AI Engineer", "ar": "شريك مؤسس ومهندس ذكاء اصطناعي" } },
-      { "name": "Engy Ahmed Ali", "role": { "en": "Co-Founder & Data Scientist", "ar": "شريكة مؤسسة وعالمة بيانات" } }
+      { "name": "Abdelrahman Mohamed", "role": { "en": "Founder & CEO", "ar": "المؤسس ورئيس قسم الأمن السيبراني" } },
+      { "name": "Ahmed Mahmoud", "role": { "en": "Co-Founder & CTO", "ar": "شريك مؤسس ومهندس ذكاء اصطناعي" } },
+      { "name": "Engy Ahmed Ali", "role": { "en": "Co-Founder & CPO", "ar": "شريكة مؤسسة وعالمة بيانات" } },
+      { "name": "Habiba Saber", "role": { "en": "Co-Founder", "ar": "شريكة مؤسسة وعالمة بيانات" } }
     ]
   },
-  "work": {
-    "hero": {
-      "eyebrow": { "en": "Selected work", "ar": "أعمال مختارة" },
-      "title": { "en": "A few of the systems we've shipped.", "ar": "شوية من الأنظمة اللي سلمناها." },
-      "lead": { "en": "Real case studies from our engagements.", "ar": "دراسات حالة حقيقية من مشاريعنا." }
-    },
-    "projects": [
-      {
-        "id": "alpha",
-        "label": "PROJECT ALPHA",
-        "title": { "en": "QA Automation Rollout", "ar": "إطلاق أتمتة ضمان الجودة" },
-        "desc": { "en": "NEXORA deployed across a fintech engineering team's release pipeline.", "ar": "نيكسورا اتطبق على خط إصدار فريق هندسي في شركة تكنولوجيا مالية." },
-        "tags": ["NEXORA", "FinTech", "CI/CD"]
-      },
-      {
-        "id": "beta",
-        "label": "PROJECT BETA",
-        "title": { "en": "Identity Layer Migration", "ar": "ترحيل طبقة الهوية" },
-        "desc": { "en": "CIPHERA replacing password-based login for a digital banking platform.", "ar": "سيفيرا بيستبدل تسجيل الدخول بكلمة المرور في منصة بنكية رقمية." },
-        "tags": ["CIPHERA", "Banking", "Identity"]
-      },
-      {
-        "id": "gamma",
-        "label": "PROJECT GAMMA",
-        "title": { "en": "Custom Systems Integration", "ar": "تكامل أنظمة مخصص" },
-        "desc": { "en": "Enterprise consulting engagement integrating legacy systems with a new security layer.", "ar": "استشارة لمؤسسة لدمج أنظمتها القديمة مع طبقة أمان جديدة." },
-        "tags": ["Consulting", "Enterprise"]
-      }
-    ]
-  },
+
   "contact": {
     "hero": {
       "eyebrow": { "en": "Get in touch", "ar": "تواصل معنا" },
