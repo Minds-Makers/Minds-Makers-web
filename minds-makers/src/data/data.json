@@ -9,7 +9,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": { "en": "Minds Makers — AI Software & Cybersecurity Studio", "ar": "ميندز ميكرز — استوديو برمجيات وأمن سيبراني بالذكاء الاصطناعي" },
+      "eyebrow": { "en": "M0000inds Makers — AI Software & Cybersecurity Studio", "ar": "ميندز ميكرز — استوديو برمجيات وأمن سيبراني بالذكاء الاصطناعي" },
       "title": { "en": "We turn ideas into <span class='accent'>working systems.</span>", "ar": "بنحول الأفكار <span class='accent'>لأنظمة شغالة فعلاً.</span>" },
       "lead": { "en": "We build AI-powered software testing, cybersecurity, and engineering solutions for teams that can't afford to ship slow or get breached — led by NEXORA and CIPHERA, our flagship platforms.", "ar": "بنبني حلول اختبار برمجيات وأمن سيبراني وهندسة أنظمة بالذكاء الاصطناعي، لفرق مش قادرة تتحمل بطء الإصدار أو الاختراق — وعلى رأسها نيكسورا وسيفيرا، منتجاتنا الرئيسية." },
       "stats": [
