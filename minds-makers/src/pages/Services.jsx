@@ -27,10 +27,10 @@ export default function Services() {
         <div className="container">
           <span className="eyebrow">{t({ en: 'Services', ar: 'خدماتنا' })}</span>
           <h1 style={{ marginTop: 18, fontSize: 'clamp(30px,4vw,46px)', color: '#fff', maxWidth: '18ch' }}>
-            {t({ en: 'Two products. Two services. One engineering standard.', ar: 'منتجين. وخدمتين. ومعيار هندسي واحد.' })}
+            {t({ en: 'Software, security, and AI — built on one engineering standard.', ar: 'منتجين. وخدمتين. ومعيار هندسي واحد.' })}
           </h1>
           <p className="lead" style={{ marginTop: 20 }}>
-            {t({ en: "Whether you license a platform or bring us a custom problem, everything we deliver runs on the same AI-native engineering bench.", ar: "سواء اشتركت في منصة جاهزة أو جبتلنا مشكلة مخصصة، كل اللي بنسلمه طالع من نفس الفريق الهندسي المبني على الذكاء الاصطناعي." })}
+            {t({ en: "Whether you need a security layer, an AI-driven system, or a custom software solution, everything we deliver runs on the same AI-native engineering bench.", ar: "سواء اشتركت في منصة جاهزة أو جبتلنا مشكلة مخصصة، كل اللي بنسلمه طالع من نفس الفريق الهندسي المبني على الذكاء الاصطناعي." })}
           </p>
         </div>
       </section>
