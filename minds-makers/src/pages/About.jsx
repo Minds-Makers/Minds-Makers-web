@@ -20,8 +20,7 @@ export default function About() {
   const { t } = useLang()
   const { data } = useData()
 
-  const about = data?.about
-
+const about = data?.about || data
   if (!about) {
     return <div>Loading...</div>
   }
