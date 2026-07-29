@@ -40,6 +40,13 @@ img { display: block; max-width: 100%; }
   padding: 0 28px;
 }
 
+.about-hero .quote,
+.about-hero .eyebrow {
+  color: #ffffff;
+  opacity: 1;
+  visibility: visible;
+}
+
 /* ── Typography ── */
 h1, h2, h3, h4 {
   font-family: var(--font-d);
