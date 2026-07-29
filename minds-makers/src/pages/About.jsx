@@ -12,10 +12,6 @@ export default function About() {
   const { t } = useLang()
   const { data } = useData()
   const { about } = data
-export default function About() {
-  const { t } = useLang()
-  const { data } = useData()
-  const { about } = data
 
   console.log("data:", data)
   console.log("about:", about)
