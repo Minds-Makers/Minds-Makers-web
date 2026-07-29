@@ -30,7 +30,20 @@ console.log("T RESULT", t(about?.vision?.title))
   }
 
   return (
+
+
+    
     <>
+
+      <div style={{ color: 'white' }}>
+  <span className="eyebrow">
+    {t(about.hero?.eyebrow)}
+  </span>
+
+  <p className="quote" style={{ marginTop: 18 }}>
+    {t(about.hero?.quote)}
+  </p>
+</div>
       <section className="hero" style={{ padding: '80px 0 60px' }}>
         <div className="container about-hero">
           <div>
