@@ -46,6 +46,14 @@ export function DataProvider({ children }) {
           if (!SECTIONS.includes(row.id)) continue
 
 
+          // لو الـ content من الداتابيز عبارة عن array (زي services)
+          // نستبدله بالكامل، لأن عمل spread لـ array جوه {} بيحوّله
+          // لـ object عادي (0,1,2...) بدل array، وده بيكسر أي .map()
+          if (Array.isArray(row.content)) {
+            merged[row.id] = row.content
+            continue
+          }
+
           // استبدال كامل للقسم فقط
           // لو الداتا ناقصة نحتفظ بالنسخة المحلية
           merged[row.id] = {
@@ -102,11 +110,13 @@ export function DataProvider({ children }) {
           setData(prev => ({
             ...prev,
 
-            [row.id]: {
-              ...initialData[row.id],
-              ...(prev[row.id] || {}),
-              ...(row.content || {})
-            }
+            [row.id]: Array.isArray(row.content)
+              ? row.content
+              : {
+                  ...initialData[row.id],
+                  ...(prev[row.id] || {}),
+                  ...(row.content || {})
+                }
 
           }))
 
@@ -138,11 +148,17 @@ export function DataProvider({ children }) {
   const saveSection = async (sectionId, sectionData) => {
 
 
-    const newSection = {
-      ...initialData[sectionId],
-      ...data[sectionId],
-      ...sectionData
-    }
+    // لو القسم أصلاً array (زي services)، منعملش object spread عليه
+    // لأنه هيتحول لـ object بمفاتيح أرقام ويبوظ .map() في الموقع
+    const newSection = Array.isArray(sectionData)
+      ? sectionData
+      : Array.isArray(initialData[sectionId])
+      ? sectionData
+      : {
+          ...initialData[sectionId],
+          ...data[sectionId],
+          ...sectionData
+        }
 
 
     const newData = {
