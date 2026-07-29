@@ -12,7 +12,20 @@ export default function About() {
   const { t } = useLang()
   const { data } = useData()
   const { about } = data
+export default function About() {
+  const { t } = useLang()
+  const { data } = useData()
+  const { about } = data
 
+  console.log("data:", data)
+  console.log("about:", about)
+  console.log("vision:", about?.vision)
+  console.log("mission:", about?.mission)
+  console.log("principles:", about?.principles)
+
+  return (
+    <>
+      ...
   return (
     <>
       <section className="hero" style={{ padding: '80px 0 60px' }}>
