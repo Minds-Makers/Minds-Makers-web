@@ -21,6 +21,10 @@ export default function About() {
   const { data } = useData()
 
 const about = data?.about || data
+  console.log("FULL DATA", data)
+console.log("ABOUT", about)
+console.log("TITLE", about?.vision?.title)
+console.log("T RESULT", t(about?.vision?.title))
   if (!about) {
     return <div>Loading...</div>
   }
