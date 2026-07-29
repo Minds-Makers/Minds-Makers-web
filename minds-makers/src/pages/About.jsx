@@ -21,10 +21,6 @@ export default function About() {
   const { data } = useData()
 
 const about = data?.about || data
-  console.log("FULL DATA", data)
-console.log("ABOUT", about)
-console.log("TITLE", about?.vision?.title)
-console.log("T RESULT", t(about?.vision?.title))
   if (!about) {
     return <div>Loading...</div>
   }
@@ -35,15 +31,6 @@ console.log("T RESULT", t(about?.vision?.title))
     
     <>
 
-      <div style={{ color: 'white' }}>
-  <span className="eyebrow">
-    {t(about.hero?.eyebrow)}
-  </span>
-
-  <p className="quote" style={{ marginTop: 18 }}>
-    {t(about.hero?.quote)}
-  </p>
-</div>
       <section className="hero" style={{ padding: '80px 0 60px' }}>
         <div className="container about-hero">
           <div>
