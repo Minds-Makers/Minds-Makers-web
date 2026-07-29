@@ -6,51 +6,80 @@ const DataCtx = createContext()
 
 const SECTIONS = ['site', 'home', 'services', 'about', 'work', 'contact']
 
+
 export function DataProvider({ children }) {
+
   const [data, setData] = useState(initialData)
   const [loading, setLoading] = useState(true)
 
+
   useEffect(() => {
+
     if (!isSupabaseConfigured) {
       setLoading(false)
       return
     }
 
+
     let cancelled = false
 
+
     async function fetchAll() {
+
       try {
+
         const { data: rows, error } = await supabase
           .from('site_content')
           .select('id, content')
 
+
         if (error) throw error
+
         if (cancelled) return
 
-        const merged = { ...initialData }
+
+        const merged = structuredClone(initialData)
+
 
         for (const row of rows || []) {
-          if (SECTIONS.includes(row.id)) {
-            merged[row.id] = {
-              ...merged[row.id],
-              ...row.content
-            }
+
+          if (!SECTIONS.includes(row.id)) continue
+
+
+          // استبدال كامل للقسم فقط
+          // لو الداتا ناقصة نحتفظ بالنسخة المحلية
+          merged[row.id] = {
+            ...merged[row.id],
+            ...(row.content || {})
           }
+
         }
+
 
         setData(merged)
 
+
       } catch (e) {
+
         console.warn(
-          'Supabase fetch failed, using local data:',
+          'Supabase fetch failed:',
           e.message
         )
+
+        setData(initialData)
+
       } finally {
-        if (!cancelled) setLoading(false)
+
+        if (!cancelled)
+          setLoading(false)
+
       }
+
     }
 
+
     fetchAll()
+
 
 
     const channel = supabase
@@ -62,29 +91,42 @@ export function DataProvider({ children }) {
           schema: 'public',
           table: 'site_content'
         },
-        (payload) => {
+        payload => {
+
           const row = payload.new
 
-          if (!row || !SECTIONS.includes(row.id)) return
+          if (!row || !SECTIONS.includes(row.id))
+            return
+
 
           setData(prev => ({
             ...prev,
+
             [row.id]: {
-              ...prev[row.id],
-              ...row.content
+              ...initialData[row.id],
+              ...(prev[row.id] || {}),
+              ...(row.content || {})
             }
+
           }))
+
         }
       )
       .subscribe()
 
 
+
     return () => {
+
       cancelled = true
+
       supabase.removeChannel(channel)
+
     }
 
+
   }, [])
+
 
 
   const update = (newData) => {
@@ -92,50 +134,72 @@ export function DataProvider({ children }) {
   }
 
 
+
   const saveSection = async (sectionId, sectionData) => {
+
+
+    const newSection = {
+      ...initialData[sectionId],
+      ...data[sectionId],
+      ...sectionData
+    }
+
 
     const newData = {
       ...data,
-      [sectionId]: {
-        ...data[sectionId],
-        ...sectionData
-      }
+      [sectionId]: newSection
     }
+
 
     setData(newData)
 
 
+
     if (!isSupabaseConfigured) {
       return {
-        ok: false,
-        error: 'Not configured'
+        ok:false,
+        error:'Not configured'
       }
     }
+
 
 
     try {
+
       const { error } = await supabase
         .from('site_content')
         .upsert({
+
           id: sectionId,
-          content: newData[sectionId],
+
+          content: newSection,
+
           updated_at: new Date().toISOString()
+
         })
 
-      if (error) throw error
 
-      return { ok: true }
+      if(error) throw error
 
-    } catch (e) {
+
+      return {ok:true}
+
+
+    } catch(e) {
+
       return {
-        ok: false,
-        error: e.message
+        ok:false,
+        error:e.message
       }
+
     }
+
   }
 
 
+
   return (
+
     <DataCtx.Provider
       value={{
         data,
@@ -145,9 +209,13 @@ export function DataProvider({ children }) {
         isSupabaseConfigured
       }}
     >
+
       {children}
+
     </DataCtx.Provider>
+
   )
+
 }
 
 
