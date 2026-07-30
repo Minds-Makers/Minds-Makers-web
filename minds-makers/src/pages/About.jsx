@@ -41,6 +41,10 @@ const about = data?.about || data
             <p className="quote" style={{ marginTop: 18 }}>
               {t(about.hero?.quote)}
             </p>
+
+            <p style={{ marginTop: 14, opacity: 0.75 }}>
+              {t(about.hero?.note)}
+            </p>
           </div>
 
           <div
